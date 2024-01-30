@@ -22,6 +22,223 @@ header {
     top: 0;
     left: 0;
     z-index: 999;
+    margin-bottom: 100px;
+}
+
+.header--mail {
+    background: #13112d;
+    color: white;
+    padding: 10px 10%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.navbar img {
+    padding: 0 10%;
+}
+
+.nav--links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+    padding: 10px 10%;
+}
+
+.nav--links a:hover {
+    color: #ff8c00;
+}
+
+.nav--links__items {
+    list-style: none;
+}
+
+.nav--links__items a {
+    text-decoration: none;
+    color: #13112d;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.navbar button {
+    background: #ff8c00;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+}
+
+.burger {
+    padding: 0 5%;
+    display: none !important;
+}
+
+@media screen and (min-width: 720px) {
+    .navbar {
+        padding: 20px 10%;
+    }
+
+    
+.nav--links__items .a-wrapper i {
+    display: none;
+}
+
+    .navbar img {
+        padding: 0;
+    }
+
+    .nav--links {
+        margin-top: 0;
+    }
+
+    .nav--links__items {
+        position: relative;
+    }
+
+    .nav--links2 {
+        position: absolute;
+        background: white;
+        width: max-content;
+        height: max-content;
+        padding: 15px;
+        padding-right: 5px;
+        top: 20px;
+        left: -15px;
+        box-shadow: 0 0 40px -10px gray;
+        display: none;
+    }
+    
+    .nav--links2__items {
+        position: relative;
+        padding-right: 0;
+    }
+
+    .a-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .a-wrapper i {
+        font-size: 0.7rem;
+    }
+
+    .nav--links2__items .a-wrapper i {
+        display: block;
+    }
+
+    .nav--links3 {
+        position: absolute;
+        background: white;
+        padding: 15px;
+        width: max-content;
+        height: max-content;
+        box-shadow: 0 0 40px -10px gray;
+        top: 0;
+        left: 160px;
+        display: none;
+    }
+
+    .navbar--links__open1 {
+        display: block;
+    }
+
+    .nav--links2 li, .nav--links3 li {
+        list-style: none;
+    }
+
+    
+}
+
+@media screen and (max-width: 720px) {
+    .header--mail {
+        font-size: 0.8rem;
+        padding: 10px 5%;
+    }
+    .navbar img {
+        padding: 0 5%;
+    }
+    .nav--links {
+        padding: 10px 5%;
+        min-width: 100vw;
+        height: 40vh;
+        background: white;
+        position: absolute;
+        gap: 5px;
+        top: 50px;
+        overflow: scroll;
+        display: none;
+    }
+
+    .nav--links2 {
+        display: none;
+    }
+    
+    .nav--links3 {
+        display: none;
+    }
+
+    .navbar button {
+        display: none;
+    }
+    .burger {
+        display: block !important;
+    }
+
+    .navbar--links__open {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .nav--links__items {
+        width: 100%;
+    }
+
+    .nav--links2__items {
+        width: calc(100% - 20px);
+    }
+
+    .a-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .a-wrapper i {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: .5px solid gray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+    }
+
+    .nav--links2 li {
+        list-style: none;
+        margin-left: 20px;
+    }
+}
+/* header {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .header--mail {
@@ -53,6 +270,7 @@ header {
 
 .navbar--links2 {
     position: absolute;
+    width: max-content;
     top: 40px;
     left: -20px;
     background: white;
@@ -69,8 +287,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 25px;
-    font-size: 10px;
+    /* gap: 25px; */
+    /* font-size: 10px;
     padding: 5px 10px;
 }
 
@@ -157,17 +375,13 @@ nav i {
     .navbar--links2 {
         position: static;
         /* width: 40%; */
-        background: transparent;
+        /* background: transparent;
         display: none;
         box-shadow: none;
     }
 
     .navbar--links2 li {
         display: block;
-    }
-
-    .navbar--links2__item i {
-        display: none;
     }
 
     .navbar--links3 {
@@ -184,7 +398,7 @@ nav i {
     nav i {
         display: block !important;
     }
-}
+}   */
 
 /* Hero */
 

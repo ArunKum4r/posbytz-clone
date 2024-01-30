@@ -53,14 +53,14 @@ window.addEventListener("load", () => {
   const crm = document.querySelector("#crm");
   const hr = document.querySelector("#hr");
   const questions = document.querySelectorAll(".question-wrapper");
-  const nav1 = document.querySelectorAll(".navbar--links__item");
-  const nav2 = document.querySelectorAll(".navbar--links2__item");
+  const nav1 = document.querySelectorAll(".nav--links__items");
+  const nav2 = document.querySelectorAll(".nav--links2__items");
   const reviews = document.querySelector(".reviews--wrapper");
   const swipe = document.querySelector(".swipe");
   const swipeLeft = document.querySelector(".swipeLeft");
   const swipeRight = document.querySelector(".swipeRight");
   const burger = document.querySelector(".burger");
-  const nav = document.querySelector(".navbar--links");
+  const nav = document.querySelector(".nav--links");
 
   burger.addEventListener("click", () => {
     burger.classList.toggle("fa-x");
@@ -225,11 +225,17 @@ window.addEventListener("load", () => {
   nav1.forEach((nav) => {
     nav.addEventListener("mouseover", () => {
       if (nav.children.length > 1) {
+        if (screen.width > 720) {
+          nav.children[1].classList.add("navbar--links__open1");
+        }
         nav.children[1].classList.add("navbar--links__open");
       }
     });
 
     nav.addEventListener("mouseout", () => {
+      if (screen.width > 720) {
+        nav.children[1].classList.remove("navbar--links__open1");
+      }
       nav.children[1].classList.remove("navbar--links__open");
     });
   });
@@ -237,12 +243,18 @@ window.addEventListener("load", () => {
   nav2.forEach((nav) => {
     nav.addEventListener("mouseover", () => {
       if (nav.children.length > 1) {
-        nav.children[2].classList.add("navbar--links__open");
+        if (screen.width > 720) {
+          nav.children[1].classList.add("navbar--links__open1");
+        }
+        nav.children[1].classList.add("navbar--links__open");
       }
     });
 
     nav.addEventListener("mouseout", () => {
-      nav.children[2].classList.remove("navbar--links__open");
+      if (screen.width > 720) {
+        nav.children[1].classList.remove("navbar--links__open1");
+      }
+      nav.children[1].classList.remove("navbar--links__open");
     });
   });
 
