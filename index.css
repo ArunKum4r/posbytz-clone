@@ -15,6 +15,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    transform: scale(1.01);
+}
+
 /* Header and navbar */
 header {
     width: 100vw;
@@ -48,7 +52,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     margin-top: 50px;
     padding: 10px 10%;
 }
@@ -66,7 +70,7 @@ header {
     color: #13112d;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .navbar button {
@@ -87,11 +91,10 @@ header {
     .navbar {
         padding: 20px 10%;
     }
-
     
-.nav--links__items .a-wrapper i {
+    .nav--links__items .a-wrapper i {
     display: none;
-}
+    }
 
     .navbar img {
         padding: 0;
@@ -146,7 +149,7 @@ header {
         height: max-content;
         box-shadow: 0 0 40px -10px gray;
         top: 0;
-        left: 160px;
+        left: 145px;
         display: none;
     }
 
@@ -529,6 +532,7 @@ nav i {
     align-items: center;
     justify-content: center;
     margin: 20px 10%;
+    gap: 30px;
 }
 
 .features-container__text {
@@ -547,7 +551,7 @@ nav i {
 }
 
 .features-container__text p {
-    font-weight: bold;
+    font-weight: 400;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -784,7 +788,8 @@ iframe {
     align-items: center;
     justify-content: space-evenly;
     font-family: 'Poppins', sans-serif;
-    margin: 50px;
+    /* margin: 40px 10px; */
+    padding: 20px 10%;
 }
 
 .customers--text {
@@ -792,6 +797,7 @@ iframe {
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    width: 30%;
 }
 
 .customers--text__light {
@@ -827,16 +833,18 @@ iframe {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    width: calc(100% - 40%);
 }
 
 .customers-list__swiper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .customers-list__swiper div {
-    width: 300px;
+    width: 100%;
     height: 100px;
 }
 
@@ -844,18 +852,28 @@ iframe {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: 5px;
 }
 
 .swipe img {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 }
 
 @media screen and (max-width: 720px) {
     .customers {
         flex-direction: column;
-        margin: 5%;
+        /* margin: 5%; */
         gap: 30px;
+        padding: 0 5%;
+    }
+
+    .customers--text {
+        width: 90%;
+    }
+
+    .customers-list {
+        width: 90%;
     }
 
     .customers--text p {
@@ -926,6 +944,7 @@ iframe {
 
 .reviews--header {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
 }
@@ -933,8 +952,9 @@ iframe {
 .reviews--header .detail {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 15px;
+    width: 80%;
 }
 
 .reviews--header img {
@@ -945,7 +965,11 @@ iframe {
 
 .reviews--header .ratings {
     font-size: 10px;
+    width: 20%;
     color: #ff8c00;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .reviews p {

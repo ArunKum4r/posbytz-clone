@@ -57,8 +57,14 @@ window.addEventListener("load", () => {
   const nav2 = document.querySelectorAll(".nav--links2__items");
   const reviews = document.querySelector(".reviews--wrapper");
   const swipe = document.querySelector(".swipe");
+  const swipe2 = document.querySelector(".swipe2");
+  const swipe3 = document.querySelector(".swipe3");
   const swipeLeft = document.querySelector(".swipeLeft");
+  const swipeLeft2 = document.querySelector(".swipeLeft2");
+  const swipeLeft3 = document.querySelector(".swipeLeft3");
   const swipeRight = document.querySelector(".swipeRight");
+  const swipeRight2 = document.querySelector(".swipeRight2");
+  const swipeRight3 = document.querySelector(".swipeRight3");
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav--links");
 
@@ -69,6 +75,104 @@ window.addEventListener("load", () => {
 
   // Customer Swipe
   let custSwiper = [0, 1, 2];
+  let custSwiper2 = [0, 1, 2];
+  let custSwiper3 = [0, 1, 2];
+
+  swipe.addEventListener("touchstart", startTouch, false);
+  swipe.addEventListener("touchmove", moveTouch, false);
+  swipe2.addEventListener("touchstart", startTouch, false);
+  swipe2.addEventListener("touchmove", moveTouch2, false);
+  swipe3.addEventListener("touchstart", startTouch, false);
+  swipe3.addEventListener("touchmove", moveTouch3, false);
+
+  let initialX = null;
+  function startTouch(e) {
+    initialX = e.touches[0].clientX;
+  }
+
+  function moveTouch(e) {
+    if (initialX === null) {
+      return;
+    }
+
+    let currentX = e.touches[0].clientX;
+
+    console.log(initialX, currentX);
+
+    if (initialX - currentX > 0) {
+      let temp;
+      custSwiper[2] >= customers.length
+        ? (temp = 0)
+        : (temp = custSwiper[2] + 1);
+      custSwiper = [custSwiper[1], custSwiper[2], temp];
+      createSwiper();
+    }
+
+    if (initialX - currentX < 0) {
+      let temp;
+      custSwiper[0] === 0
+        ? (temp = customers.length - 1)
+        : (temp = custSwiper[0] - 1);
+      custSwiper = [temp, custSwiper[0], custSwiper[1]];
+      createSwiper();
+    }
+  }
+
+  function moveTouch2(e) {
+    if (initialX === null) {
+      return;
+    }
+
+    let currentX = e.touches[0].clientX;
+
+    console.log(initialX, currentX);
+
+    if (initialX - currentX > 0) {
+      let temp;
+      custSwiper2[2] >= customers.length
+        ? (temp = 0)
+        : (temp = custSwiper2[2] + 1);
+      custSwiper2 = [custSwiper2[1], custSwiper2[2], temp];
+      createSwiper();
+    }
+
+    if (initialX - currentX < 0) {
+      let temp;
+      custSwiper2[0] === 0
+        ? (temp = customers.length - 1)
+        : (temp = custSwiper2[0] - 1);
+      custSwiper2 = [temp, custSwiper2[0], custSwiper2[1]];
+      createSwiper();
+    }
+  }
+
+  function moveTouch3(e) {
+    if (initialX === null) {
+      return;
+    }
+
+    let currentX = e.touches[0].clientX;
+
+    console.log(initialX, currentX);
+
+    if (initialX - currentX > 0) {
+      let temp;
+      custSwiper3[2] >= customers.length
+        ? (temp = 0)
+        : (temp = custSwiper3[2] + 1);
+      custSwiper3 = [custSwiper3[1], custSwiper3[2], temp];
+      createSwiper();
+    }
+
+    if (initialX - currentX < 0) {
+      let temp;
+      custSwiper3[0] === 0
+        ? (temp = customers.length - 1)
+        : (temp = custSwiper3[0] - 1);
+      custSwiper3 = [temp, custSwiper3[0], custSwiper3[1]];
+      createSwiper();
+    }
+  }
 
   swipeLeft.addEventListener("click", () => {
     let temp;
@@ -86,10 +190,54 @@ window.addEventListener("load", () => {
     createSwiper();
   });
 
+  swipeLeft2.addEventListener("click", () => {
+    let temp;
+    custSwiper2[2] >= customers.length
+      ? (temp = 0)
+      : (temp = custSwiper2[2] + 1);
+    custSwiper2 = [custSwiper2[1], custSwiper2[2], temp];
+    createSwiper();
+  });
+
+  swipeRight2.addEventListener("click", () => {
+    let temp;
+    custSwiper2[0] === 0
+      ? (temp = customers.length - 1)
+      : (temp = custSwiper2[0] - 1);
+    custSwiper2 = [temp, custSwiper2[0], custSwiper2[1]];
+    createSwiper();
+  });
+
+  swipeLeft3.addEventListener("click", () => {
+    let temp;
+    custSwiper3[2] >= customers.length
+      ? (temp = 0)
+      : (temp = custSwiper3[2] + 1);
+    custSwiper3 = [custSwiper3[1], custSwiper3[2], temp];
+    createSwiper();
+  });
+
+  swipeRight3.addEventListener("click", () => {
+    let temp;
+    custSwiper3[0] === 0
+      ? (temp = customers.length - 1)
+      : (temp = custSwiper3[0] - 1);
+    custSwiper3 = [temp, custSwiper3[0], custSwiper3[1]];
+    createSwiper();
+  });
+
   const createSwiper = () => {
     swipe.innerHTML = `<img src="${customers[custSwiper[0]]}"></img>
                        <img src="${customers[custSwiper[1]]}"></img>
                        <img src="${customers[custSwiper[2]]}"></img>`;
+
+    swipe2.innerHTML = `<img src="${customers[custSwiper2[0]]}"></img>
+                        <img src="${customers[custSwiper2[1]]}"></img>
+                        <img src="${customers[custSwiper2[2]]}"></img>`;
+
+    swipe3.innerHTML = `<img src="${customers[custSwiper3[0]]}"></img>
+                        <img src="${customers[custSwiper3[1]]}"></img>
+                        <img src="${customers[custSwiper3[2]]}"></img>`;
   };
 
   createSwiper();
@@ -100,7 +248,30 @@ window.addEventListener("load", () => {
   const left = document.querySelector(".left");
   const right = document.querySelector(".right");
 
-  left.addEventListener("click", () => {
+  left.addEventListener("click", leftSwipe);
+  right.addEventListener("click", rightSwipe);
+  reviews.addEventListener("touchstart", custTouch);
+  reviews.addEventListener("touchmove", custTouchMove);
+
+  let initalCustX = null;
+  function custTouch(e) {
+    initalCustX = e.touches[0].clientX;
+  }
+
+  function custTouchMove(e) {
+    if (initalCustX === null) {
+      return;
+    }
+    let currentCustX = e.touches[0].clientX;
+
+    if (initalCustX - currentCustX > 0) {
+      leftSwipe();
+    } else {
+      rightSwipe();
+    }
+  }
+
+  function leftSwipe() {
     if (l === 0) {
       l = testimonials.length - 1;
     }
@@ -138,9 +309,9 @@ window.addEventListener("load", () => {
                         </div>
                         </div>
                         <p>${testimonials[r].review}</p>`;
-  });
+  }
 
-  right.addEventListener("click", () => {
+  function rightSwipe() {
     if (r === testimonials.length - 1) {
       r = 0;
     }
@@ -179,7 +350,7 @@ window.addEventListener("load", () => {
 </div>
 </div>
 <p>${testimonials[r].review}</p>`;
-  });
+  }
 
   const reviewl = document.createElement("div");
   reviewl.classList.add("reviews");
@@ -215,7 +386,7 @@ window.addEventListener("load", () => {
 </div>
 <p>${testimonials[r].review}</p>`;
   reviews.appendChild(reviewl);
-  console.log(screen.width);
+
   if (screen.width > 640) {
     reviews.appendChild(reviewr);
   }
@@ -297,7 +468,7 @@ window.addEventListener("load", () => {
     order.classList.add("active");
     featuresText.replaceChildren = "";
     featuresText.innerHTML = `<div class="features-container__text">
-    <h3>Our order management system is designed to streamline and optimize the orders from multiple channels outlets or online channels. Here are some key features of our order management system:</h3>
+    <h3 style="color: #a90030">Our order management system is designed to streamline and optimize the orders from multiple channels outlets or online channels. Here are some key features of our order management system:</h3>
     <p><i class="fa-solid fa-check"></i>Manage Sales orders from multiple channels</p>
     <p><i class="fa-solid fa-check"></i>Customise multi pricing for same items different channels</p>
     <p><i class="fa-solid fa-check"></i>Manage inventory of SKUs for different channels</p>
@@ -315,14 +486,14 @@ window.addEventListener("load", () => {
     purchase.classList.add("active");
     featuresText.replaceChildren = "";
     featuresText.innerHTML = `<div class="features-container__text">
-      <h3>Our POS software offers a wide range of powerful features designed to enhance your retail and restaurant operations. Here are some key highlights:</h3>
-      <p><i class="fa-solid fa-check"></i>Easy-to-Use Interface</p>
-      <p><i class="fa-solid fa-check"></i>Device Agnotic can be installed in Windows, Android and IOS</p>
-      <p><i class="fa-solid fa-check"></i>Works well for both Restaurant and Retail business</p>
-      <p><i class="fa-solid fa-check"></i>Multiple channel Sales management</p>
-      <p><i class="fa-solid fa-check"></i>Integrations with printers, scanner ,weighing scales and label printers</p>
+      <h3 style="color: #24007e">Our comprehensive purchase and inventory management features empower your retail or restaurant business to efficiently manage and optimize your purchasing processes and inventory levels. Here are the key features that our software offers:</h3>
+      <p><i class="fa-solid fa-check"></i><strong>Purchase Order Creation:</strong> Generate purchase orders directly within the system</p>
+      <p><i class="fa-solid fa-check"></i><strong>Supplier Management:</strong> Manage your vendors track all your purchase and payments against any vendor</p>
+      <p><i class="fa-solid fa-check"></i><strong>Inventory Tracking:</strong> Keep real-time track of your inventory levels, including stock quantities, locations, and availability.</p>
+      <p><i class="fa-solid fa-check"></i><strong>Reorder Point and Auto-Replenishment:</strong> Set up reorder points for products to automatically trigger purchase orders when inventory reaches a predefined threshold.</p>
+      <p><i class="fa-solid fa-check"></i><strong>Reporting and Analytics:</strong> Generate comprehensive reports and analyse inventory data to gain insights into cost of goods, inventory stock reports etc..,</p>
       </div>
-      <img src="https://posbytz.com/wp-content/uploads/2023/07/Untitled-87.png" alt="">`;
+      <img src="https://posbytz.com/wp-content/uploads/2023/07/Untitled-9-1.png" alt="">`;
   });
 
   ecom.addEventListener("click", () => {
@@ -331,6 +502,16 @@ window.addEventListener("load", () => {
       active.classList.remove("active");
     }
     ecom.classList.add("active");
+    featuresText.replaceChildren = "";
+    featuresText.innerHTML = `<div class="features-container__text">
+    <h3 style="color: #a90030">Our Omnichannel ecommerce and online ordering features provide a seamless and convenient way for your retail or restaurant business to expand its reach and cater to the growing demands of online customers.</h3>
+    <p><i class="fa-solid fa-check"></i><strong>Online Store Creation:</strong> Establish an attractive and user-friendly online store to showcase your products or menu items. Customize the design, layout, and branding to create a unique online shopping experience that reflects your brand identity</p>
+    <p><i class="fa-solid fa-check"></i><strong>Product Catalog Management:</strong> Easily manage your product inventory within the online store. Add new products, update pricing and descriptions, and categorize items for easy navigation.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Order Placement:</strong> Allow customers to place orders directly through your online store along with secure payments options</p>
+    <p><i class="fa-solid fa-check"></i><strong>Delivery and Pickup Options:</strong> Offer customers the choice of delivery or pickup for their online orders. Provide accurate delivery time estimates, define delivery zones, and delivery fees.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Headless commerce API’s :</strong> Build your ecommerce website as per your UI/UX requirement in ease using our on-self Headless commerce API’s</p>
+    </div>
+    <img src="https://posbytz.com/wp-content/uploads/2023/07/Untitled-6-1.png" alt="">`;
   });
 
   acc.addEventListener("click", () => {
@@ -339,6 +520,15 @@ window.addEventListener("load", () => {
       active.classList.remove("active");
     }
     acc.classList.add("active");
+    featuresText.replaceChildren = "";
+    featuresText.innerHTML = `<div class="features-container__text">
+    <h3 style="color: #1aa480">Our accounting and finance features provide robust tools to manage the financial aspects of your retail or restaurant business from tracking expenses to generating financial reports</h3>
+    <p><i class="fa-solid fa-check"></i><strong>General Ledger:</strong>Maintain a centralized and organized record of your financial transactions, including sales, purchases, expenses, and payments. Our software automatically updates the general ledger, ensuring accurate and up-to-date financial reports</p>
+    <p><i class="fa-solid fa-check"></i><strong>Accounts Payable and Receivable:</strong>Manage your payables and receivables efficiently. Keep track of outstanding invoices, manage vendor payments, and handle customer invoices and payments.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Financial Reporting:</strong>Generate various financial reports, such as income statements, balance sheets, Trial balance, General Ledgers and profit and loss statements.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Expense Management:</strong>Track and categorize expenses, including overhead costs, vendor payments, and employee reimbursements.</p>
+    </div>
+    <img src="https://posbytz.com/wp-content/uploads/2023/07/Untitled-3-1.png" alt="">`;
   });
 
   crm.addEventListener("click", () => {
@@ -347,6 +537,15 @@ window.addEventListener("load", () => {
       active.classList.remove("active");
     }
     crm.classList.add("active");
+    featuresText.replaceChildren = "";
+    featuresText.innerHTML = `<div class="features-container__text">
+    <h3 style="color: #6C0758">Our CRM (Customer Relationship Management) and marketing automation features are designed to help you effectively manage customer interactions, nurture relationships, and automate marketing campaigns.</h3>
+    <p><i class="fa-solid fa-check"></i><strong>Customer Database Management:</strong> Maintain a centralized customer database with detailed profiles, including contact information, purchase history, preferences, and communication history.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Customer Grouping:</strong> Group your customer database into segments based on demographics, behaviour, purchase history, or other criteria</p>
+    <p><i class="fa-solid fa-check"></i><strong>Email Marketing Automation:</strong> Automate email campaigns and workflows to engage customers at various stages of their journey. Set up triggered emails for welcome messages, occasional days, abandoned carts, order confirmations, and more.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Customer Communication: Manage customer communication through various channels, including email, SMS, and social media. relationships. Social Media Integration:</strong> Integrate with social media platforms to monitor and engage with customers on social channels.</p>
+    </div>
+    <img src="https://posbytz.com/wp-content/uploads/2023/07/Untitled-16-1.png" alt="">`;
   });
 
   hr.addEventListener("click", () => {
@@ -355,6 +554,16 @@ window.addEventListener("load", () => {
       active.classList.remove("active");
     }
     hr.classList.add("active");
+    featuresText.replaceChildren = "";
+    featuresText.innerHTML = `<div class="features-container__text">
+    <h3 style="color: brown">Our HR (Human Resources) and Payroll features provide comprehensive tools to streamline your employee management and payroll processes. Here are the key features our software offers:</h3>
+    <p><i class="fa-solid fa-check"></i><strong>Employee Database:</strong> Maintain a centralized employee database with essential information, including personal details, employment history, job roles, and certifications.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Attendance and Time Tracking:</strong> Track employee attendance and working hours efficiently. Our software supports various methods of time tracking, including manual entry, biometric devices, or integrations with time clock systems.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Leave Management:</strong> Streamline the process of managing employee leaves, including vacation days, sick leave, and other types of time off.</p>
+    <p><i class="fa-solid fa-check"></i><strong>Payroll Processing:</strong> Automate your payroll calculations and streamline the payroll process. Our software handles salary calculations, tax deductions, benefits, and other payroll components..</p>
+    <p><i class="fa-solid fa-check"></i><strong>Tax & Statutory Compliance:</strong> Stay compliant with tax regulations by automating tax calculations and deductions</p>
+    </div>
+    <img src="https://posbytz.com/wp-content/uploads/2023/07/369.png" alt="">`;
   });
   // Features End
 
